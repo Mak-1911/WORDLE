@@ -1,0 +1,343 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>INGENUITUS</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- CSS only -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <!-- Add additional CSS in static file -->
+
+  
+</head>
+<style>
+  body{
+    background: black;
+    
+    overflow-y:hidden;
+  }
+    .navbar-brand{
+        padding: 6px;
+    }
+    .navbar{
+        background-color: darkgrey;
+    }
+    .container1{
+        text-align: center;
+    }
+    .container .h1{
+        margin-top: 25% !important;
+    }
+    .container1 {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 40%;
+      left: 50%;
+      font-family: "Oswald", sans-serif;
+      font-style: italic;
+   }
+    .glitch, .glow {
+      color: #dfbfbf;
+      position: relative;
+      font-size: 12vw;
+      animation: glitch 5s 5s infinite;
+   }
+    .glitch::before, .glow::before {
+      content: attr(data-text);
+      position: absolute;
+      left: -2px;
+      text-shadow: -5px 0 magenta;
+      background: black;
+      overflow: hidden;
+      top: 0;
+      animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+   }
+    .glitch::after, .glow::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 2px;
+      text-shadow: -5px 0 lightgreen;
+      background: black;
+      overflow: hidden;
+      top: 0;
+      animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+   }
+    @keyframes glitch {
+      1% {
+        transform: rotateX(10deg) skewX(90deg);
+     }
+      2% {
+        transform: rotateX(0deg) skewX(0deg);
+     }
+   }
+    @keyframes noise-1 {
+      3.3333333333% {
+        clip-path: inset(25px 0 41px 0);
+     }
+      6.6666666667% {
+        clip-path: inset(64px 0 6px 0);
+     }
+      10% {
+        clip-path: inset(86px 0 10px 0);
+     }
+      13.3333333333% {
+        clip-path: inset(14px 0 49px 0);
+     }
+      16.6666666667% {
+        clip-path: inset(60px 0 32px 0);
+     }
+      20% {
+        clip-path: inset(10px 0 31px 0);
+     }
+      23.3333333333% {
+        clip-path: inset(49px 0 1px 0);
+     }
+      26.6666666667% {
+        clip-path: inset(64px 0 1px 0);
+     }
+      30% {
+        clip-path: inset(11px 0 59px 0);
+     }
+      33.3333333333% {
+        clip-path: inset(84px 0 11px 0);
+     }
+      36.6666666667% {
+        clip-path: inset(53px 0 32px 0);
+     }
+      40% {
+        clip-path: inset(28px 0 66px 0);
+     }
+      43.3333333333% {
+        clip-path: inset(46px 0 5px 0);
+     }
+      46.6666666667% {
+        clip-path: inset(18px 0 24px 0);
+     }
+      50% {
+        clip-path: inset(24px 0 51px 0);
+     }
+      53.3333333333% {
+        clip-path: inset(1px 0 22px 0);
+     }
+      56.6666666667% {
+        clip-path: inset(6px 0 78px 0);
+     }
+      60% {
+        clip-path: inset(84px 0 5px 0);
+     }
+      63.3333333333% {
+        clip-path: inset(1px 0 50px 0);
+     }
+      66.6666666667% {
+        clip-path: inset(50px 0 24px 0);
+     }
+      70% {
+        clip-path: inset(65px 0 36px 0);
+     }
+      73.3333333333% {
+        clip-path: inset(95px 0 4px 0);
+     }
+      76.6666666667% {
+        clip-path: inset(19px 0 20px 0);
+     }
+      80% {
+        clip-path: inset(80px 0 7px 0);
+     }
+      83.3333333333% {
+        clip-path: inset(34px 0 20px 0);
+     }
+      86.6666666667% {
+        clip-path: inset(19px 0 2px 0);
+     }
+      90% {
+        clip-path: inset(6px 0 95px 0);
+     }
+      93.3333333333% {
+        clip-path: inset(80px 0 6px 0);
+     }
+      96.6666666667% {
+        clip-path: inset(41px 0 19px 0);
+     }
+      100% {
+        clip-path: inset(65px 0 7px 0);
+     }
+   }
+    @keyframes noise-2 {
+      0% {
+        clip-path: inset(74px 0 9px 0);
+     }
+      3.3333333333% {
+        clip-path: inset(79px 0 7px 0);
+     }
+      6.6666666667% {
+        clip-path: inset(48px 0 28px 0);
+     }
+      10% {
+        clip-path: inset(89px 0 10px 0);
+     }
+      13.3333333333% {
+        clip-path: inset(58px 0 10px 0);
+     }
+      16.6666666667% {
+        clip-path: inset(18px 0 47px 0);
+     }
+      20% {
+        clip-path: inset(26px 0 30px 0);
+     }
+      23.3333333333% {
+        clip-path: inset(68px 0 29px 0);
+     }
+      26.6666666667% {
+        clip-path: inset(94px 0 5px 0);
+     }
+      30% {
+        clip-path: inset(67px 0 28px 0);
+     }
+      33.3333333333% {
+        clip-path: inset(4px 0 77px 0);
+     }
+      36.6666666667% {
+        clip-path: inset(36px 0 41px 0);
+     }
+      40% {
+        clip-path: inset(29px 0 7px 0);
+     }
+      43.3333333333% {
+        clip-path: inset(48px 0 40px 0);
+     }
+      46.6666666667% {
+        clip-path: inset(24px 0 57px 0);
+     }
+      50% {
+        clip-path: inset(98px 0 3px 0);
+     }
+      53.3333333333% {
+        clip-path: inset(38px 0 39px 0);
+     }
+      56.6666666667% {
+        clip-path: inset(5px 0 24px 0);
+     }
+      60% {
+        clip-path: inset(70px 0 12px 0);
+     }
+      63.3333333333% {
+        clip-path: inset(65px 0 15px 0);
+     }
+      66.6666666667% {
+        clip-path: inset(57px 0 34px 0);
+     }
+      70% {
+        clip-path: inset(83px 0 7px 0);
+     }
+      73.3333333333% {
+        clip-path: inset(61px 0 1px 0);
+     }
+      76.6666666667% {
+        clip-path: inset(4px 0 28px 0);
+     }
+      80% {
+        clip-path: inset(79px 0 22px 0);
+     }
+      83.3333333333% {
+        clip-path: inset(11px 0 42px 0);
+     }
+      86.6666666667% {
+        clip-path: inset(15px 0 67px 0);
+     }
+      90% {
+        clip-path: inset(30px 0 9px 0);
+     }
+      93.3333333333% {
+        clip-path: inset(50px 0 45px 0);
+     }
+      96.6666666667% {
+        clip-path: inset(6px 0 43px 0);
+     }
+      100% {
+        clip-path: inset(22px 0 52px 0);
+     }
+   }
+    .scanlines {
+      overflow: hidden;
+      mix-blend-mode: difference;
+   }
+    .scanlines::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 98px;
+      left: 0;
+      background: repeating-linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.05) 0.5%, transparent 1%);
+      animation: fudge 7s ease-in-out alternate infinite;
+   }
+    @keyframes fudge {
+      from {
+        transform: translate(0px, 0px);
+     }
+      to {
+        transform: translate(0px, 2%);
+     }
+   }
+    .glow {
+      text-shadow: 0 0 1000px #dfbfbf;
+      color: transparent;
+      position: absolute;
+      top: 0;
+   }
+    .subtitle {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 100;
+      font-size: 0.8vw;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1em;
+      text-align: center;
+      position: absolute;
+      animation: glitch-2 5s 5.02s infinite;
+   }
+    @keyframes glitch-2 {
+      1% {
+        transform: rotateX(10deg) skewX(70deg);
+     }
+      2% {
+        transform: rotateX(0deg) skewX(0deg);
+     }
+   }
+   @media only screen and(max-width:525px){
+     .glitch{
+       font-size: 300px;
+     }
+   }
+    
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand" href="https://arhn.co.in/" target="_blank"><img style="width:70px;height:70px;" src="{% static 'img/logo.png' %}" id="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" >
+          <div class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+            <a class="nav-item nav-link" href="{% url 'play' %}">Play</a>
+            {% else %}
+            <a class="nav-item nav-link" href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
+            {% endif %}
+            <a class="nav-item nav-link" href="{% url 'leaderboard' %}">Leaderboard</a>
+            <a class="nav-item nav-link" href="#">Rules</a>
+          </div>
+        </div>
+      </nav>
+      <div class="container1">
+        <div class="glitch" data-text="INGENUITUS">INGENUITUS</div>
+        <div class="glow">INGENUITUS</div>
+        <p class="subtitle">Wordle is a daily word game you can find online here. 
+          It's fun, simple and, like a crossword, can only be played once a day. 
+          Every 24 hours there's a new word of the day, and it's up to you to figure 
+          out what it is. </p>
+        </div>
+        <div class="scanlines"></div>
+</body>
+</html>
