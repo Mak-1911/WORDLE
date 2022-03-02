@@ -8,4 +8,5 @@ urlpatterns = [
     path('playnow/wordlegame/',views.wordlegame,name='wordlegame'),
     path('playnow/wordlegame/playnow2/<key>',views.play2,name = 'play2'),
     path('leaderboard/',views.leaderboard,name='leaderboard'),
+    path('choosetheme/',views.choosetheme,name='choosetheme'),
 ]

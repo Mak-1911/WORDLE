@@ -132,6 +132,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-LOGIN_REDIRECT_URL = 'play'
+LOGIN_REDIRECT_URL = 'choosetheme'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '668747096869-fvmed6fbga8u1jovthjtd5rt0oe45dkk.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'

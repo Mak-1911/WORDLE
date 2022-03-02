@@ -40,24 +40,18 @@
         </div>
       </nav>
       <div class="container">
-          <h1>HELLO {{p.user.first_name}}</h1>
-          <a class="btn btn-primary" href="{% url 'logout' %}" role="button">Logout</a>
-          {% if p.theme == 'Automobile' %}
-          <a class="btn btn-primary" href="{% url 'wordlegame' %}" role="button">Play Automobile Wordle</a>
-          {% elif p.theme == 'Energy' %}
-          <a class="btn btn-primary" href="{% url 'wordlegame' %}" role="button">Play Energy Wordle</a>
-          {% elif p.theme == 'Space' %}
-          <a class="btn btn-primary" href="{% url 'wordlegame' %}" role="button">Play Aeronautic & Space Wordle</a>
-          {% elif p.theme == 'IOT' %}
-          <a class="btn btn-primary" href="{% url 'wordlegame' %}" role="button">Play IOT & Smart Systems Wordle</a>
-          {% elif p.theme == 'Robotics' %}
-          <a class="btn btn-primary" href="{% url 'wordlegame' %}" role="button">Play Robotics/ML/Metaverse Wordle</a>
-          {% elif p.theme == '5' %}
-          <a class="btn btn-primary" href="{% url 'wordlegame' %}" role="button">Mat Khelo Yaar! Maaf karo</a>
-          {% endif %}
-          <h3>Score: {{p.score}}</h3>
-          <h3>Games: {{p.game}}</h3>
-          <h3>Theme: {{p.theme}}</h3>
+        <form action="{% url 'play' %}" method="POST">
+          {% csrf_token %}
+            <select name="theme">
+              <option selected="selected" disabled>Select One Theme from the following:</option>
+              <option value="Automobile">Automobile</option>
+              <option value="Energy">Energy</option>
+              <option value="Space">Space</option>
+              <option value="IOT">IOT</option>
+              <option value="Robotics">Robotics</option>
+            </select>
+            <input type="submit" value="Select">
+          </form>
           
       </div>
 </body>

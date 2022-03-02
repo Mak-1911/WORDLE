@@ -10,6 +10,7 @@ class Profile(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     score = models.IntegerField(default=0)
     game = models.IntegerField(default=0)
+    theme = models.CharField(max_length=255)
 
     class Meta():
         ordering = ('-score','game')
